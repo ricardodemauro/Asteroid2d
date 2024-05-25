@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcun56n4p4ycq"]
+
+[ext_resource type="Script" path="res://scenes/game_over_screen.gd" id="1_vr1cp"]
+[ext_resource type="FontFile" uid="uid://bqsqp0xuvea71" path="res://assets/font/Kenney Blocks.ttf" id="1_y13de"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxtid"]
+font = ExtResource("1_y13de")
+font_size = 64
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vr1cp")
+
+[node name="GameOver" type="Label" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 216.0
+offset_right = 870.0
+offset_bottom = 312.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_mxtid")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 414.0
+offset_right = 779.0
+offset_bottom = 476.0
+theme_override_fonts/font = ExtResource("1_y13de")
+theme_override_font_sizes/font_size = 36
+text = "TRY AGAIN
+"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
