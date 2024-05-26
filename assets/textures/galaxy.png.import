@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyxj4b0dsj6pr"
-path="res://.godot/imported/galaxy.png-a0330f2f5d2a847d7216253e6f40cef5.ctex"
+path="res://.godot/imported/galaxy.png-1aee5a9fe2e12686bf9807d8d221690c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/galaxy.png"
-dest_files=["res://.godot/imported/galaxy.png-a0330f2f5d2a847d7216253e6f40cef5.ctex"]
+source_file="res://assets/textures/galaxy.png"
+dest_files=["res://.godot/imported/galaxy.png-1aee5a9fe2e12686bf9807d8d221690c.ctex"]
 
 [params]
 

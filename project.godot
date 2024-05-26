@@ -15,9 +15,21 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+GlobalEventReceivers="*res://scripts/global_event_receivers.gd"
+GlobalAudio="*res://scripts/global_audio.gd"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[importer_defaults]
+
+animation_library={
+"animation/fps": 60.0
+}
 
 [input]
 
