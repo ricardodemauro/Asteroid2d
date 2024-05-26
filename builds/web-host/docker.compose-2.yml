@@ -1,9 +1,0 @@
-services:
-  cloudflared-portainer:
-    image: cloudflare/cloudflared:latest
-    container_name: tunnel-portainer
-    command: tunnel run --token ${TOKEN_SEAF}
-    environment:
-      - TUNNEL_TOKEN={TOKEN_SEAF}
-    restart: unless-stopped
-    network_mode: host

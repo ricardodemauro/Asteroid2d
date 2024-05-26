@@ -1,10 +1,10 @@
-version: '3.7'
+
 services:
   web:
-    image: nginx:latest
+    image: nginx:1.26.0-alpine-slim
     ports:
-      - "80:80"
-    network_mode: host
-    volumes: 
-      - /home/secondary/github/Asteroid2d/builds/web:/var/www/html
+      - "4000:80"
+    #network_mode: host
+    volumes:
+      - /home/radmin/github/Asteroid2d/builds/web:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
