@@ -16,19 +16,19 @@ script = ExtResource("1_vr1cp")
 
 [node name="GameOver" type="Label" parent="."]
 layout_mode = 0
-offset_left = 454.0
+offset_left = 368.0
 offset_top = 216.0
-offset_right = 870.0
+offset_right = 784.0
 offset_bottom = 312.0
 text = "Game Over"
 label_settings = SubResource("LabelSettings_mxtid")
 
 [node name="RestartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 546.0
-offset_top = 414.0
-offset_right = 779.0
-offset_bottom = 476.0
+offset_left = 466.0
+offset_top = 416.0
+offset_right = 699.0
+offset_bottom = 478.0
 theme_override_fonts/font = ExtResource("1_y13de")
 theme_override_font_sizes/font_size = 36
 text = "TRY AGAIN

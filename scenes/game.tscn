@@ -21,12 +21,19 @@ unique_name_in_owner = true
 
 [node name="GameOverScreen" parent="UI" instance=ExtResource("3_u83n4")]
 visible = false
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="BackgroundField" parent="." instance=ExtResource("5_433ky")]
 
 [node name="Player" parent="." instance=ExtResource("1_4jifl")]
-position = Vector2(640, 360)
+position = Vector2(576, 324)
 scale = Vector2(0.7, 0.7)
+
+[node name="PlayerSpawnPosition" type="Node2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="GameSpawnArea" parent="PlayerSpawnPosition" instance=ExtResource("6_vau8l")]
 
 [node name="Lasers" type="Node" parent="."]
 
@@ -43,11 +50,6 @@ position = Vector2(991, 527)
 
 [node name="Asteroid" parent="Asteroids" instance=ExtResource("3_1y85n")]
 position = Vector2(342, 399)
-
-[node name="PlayerSpawnPosition" type="Node2D" parent="."]
-position = Vector2(640, 360)
-
-[node name="GameSpawnArea" parent="PlayerSpawnPosition" instance=ExtResource("6_vau8l")]
 
 [node name="LaserSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_bhxwu")
