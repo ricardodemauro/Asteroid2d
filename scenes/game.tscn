@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://duwiifqug7g3p"]
+[gd_scene load_steps=12 format=3 uid="uid://duwiifqug7g3p"]
 
 [ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/player.tscn" id="1_4jifl"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_yhib4"]
@@ -10,6 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://v55k4b13efgb" path="res://assets/audio/sfx_laser1.wav" id="7_bhxwu"]
 [ext_resource type="AudioStream" uid="uid://cj6d3b2f2d56x" path="res://assets/audio/hit.wav" id="8_jssph"]
 [ext_resource type="AudioStream" uid="uid://ekmur3pq86bq" path="res://assets/audio/explode.wav" id="9_5uyna"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3up1u"]
+vertices = PackedVector2Array(623, 469, 1181, 366, 1227, 645, 1097, 669, 607, 619, 333, 496, -23, 359, 25, 661, -29, 658, -23, 335, -26, 336, -50, -27, 153, -20, 268, 214, 1070, 176, 1057, -27, 1200, -16, 1181, 344, 942, 158, 820, 337, 835, 179, 435, 297, -23, 338, 449, 21, 539, 137, 918, 65)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5), PackedInt32Array(6, 0, 5), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 14, 17, 19, 20), PackedInt32Array(21, 22, 9, 13), PackedInt32Array(21, 13, 23, 24), PackedInt32Array(20, 24, 23, 25, 18)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(441, 307, 544, 148, 824, 188, 809, 347, 1191, 355, 1211, -26, 1047, -38, 1059, 164, 950, 149, 927, 56, 446, 11, 271, 197, 160, -30, -61, -38, -36, 350), PackedVector2Array(623, 459, 1190, 355, 1239, 654, 1098, 680, 605, 629, 333, 507, 28, 672, -40, 668, -33, 349)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yhib4")
@@ -60,5 +66,15 @@ stream = ExtResource("8_jssph")
 [node name="PlayerDieSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5uyna")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_3up1u")
+constrain_avoidance = true
+avoidance_layers = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="on_restart_game_signal" from="UI/GameOverScreen" to="." method="_on_game_over_screen_on_restart_game_signal"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

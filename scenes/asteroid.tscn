@@ -15,4 +15,8 @@ texture = ExtResource("1_5qcoh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_sa3e1")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 53.92
+avoidance_layers = 4
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
