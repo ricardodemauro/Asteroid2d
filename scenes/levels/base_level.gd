@@ -7,7 +7,10 @@ extends Node2D
 @onready var player_spawn_position = $PlayerSpawnPosition
 @onready var player_span_area : GameSpawnArea = $PlayerSpawnPosition/GameSpawnArea
 
-@onready var asteroid_scene = preload("res://scenes/asteroid.tscn")
+@export var asteroid_scene : PackedScene
+@export var asteroid_count : int = 1
+@export var asteroid_velocity : float = 1
+#@onready var asteroid_scene = preload("res://scenes/asteroid.tscn")
 
 
 @onready var lives : int = 3:
@@ -23,16 +26,16 @@ var score := 0:
 func _ready():
 	score = 0
 	lives = 3
-	for asteroid in asteroids.get_children():
-		asteroid.connect("exploded", _on_asteroid_exploded)
-		
+	
+	setup_initial_asteroids(asteroid_count)
+	
 	player.connect("died", _on_player_died)
 
 func _on_player_laser_shot(laser):
 	$LaserSound.play()
 	lasers.add_child(laser)
 
-func _on_asteroid_exploded(position, size, points):
+func _on_asteroid_exploded(asteroid_position, size, points):
 	score += points
 	
 	$AsteroidHitSound.play()
@@ -41,22 +44,26 @@ func _on_asteroid_exploded(position, size, points):
 		Asteroid.AsteroidSize.LARGE:
 			var spaw_times = randf_range(1, 5)
 			for i in spaw_times:
-				spaw_asteroid(position, Asteroid.AsteroidSize.MEDIUM)
+				spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.MEDIUM, randf_range(50, 100))
 			
 		Asteroid.AsteroidSize.MEDIUM:
 			var spaw_times = randf_range(1, 10)
 			for i in spaw_times:
-				spaw_asteroid(position, Asteroid.AsteroidSize.SMALL)
+				spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.SMALL, randf_range(50, 100))
 		Asteroid.AsteroidSize.SMALL:
 			pass
 	
+func setup_initial_asteroids(quantity : int):
+	for i in quantity:
+		var asteroid_position = Vector2(0, 0)
+		spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.LARGE, randf_range(50, 100))
 
-func spaw_asteroid(position, size):
+func spaw_asteroid(asteroid_position : Vector2, size : Asteroid.AsteroidSize, speed : float):
 	var tmp = asteroid_scene.instantiate() as Asteroid
-	tmp.global_position = position
+	tmp.global_position = asteroid_position
 	tmp.size = size
 	
-	tmp.speed = randf_range(50, 100)
+	tmp.speed = speed
 	
 	tmp.connect("exploded", _on_asteroid_exploded)
 	

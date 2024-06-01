@@ -1,4 +1,5 @@
 extends Area2D
+class_name LaserNode
 
 @export var speed : float = 500.0
 

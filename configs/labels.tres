@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://rmd1feedca20"]
+
+[ext_resource type="FontFile" uid="uid://bqsqp0xuvea71" path="res://assets/font/Kenney Blocks.ttf" id="1_tcam5"]
+
+[resource]
+font = ExtResource("1_tcam5")
+font_size = 32

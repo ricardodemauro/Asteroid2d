@@ -6,14 +6,15 @@ signal died
 @export var acceleration := 10.0
 @export var max_speed := 350.0
 @export var rotation_speed := 250.0
-@export var rate_fire : float = 0.15
+@export var rate_fire : float = 0.30
 
 var alive := true
 
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
 
-var laser_scena = preload("res://scenes/characters/player/laser.tscn")
+@export var laser_scene : PackedScene
+#var laser_scena = preload("res://scenes/characters/player/laser.tscn")
 
 var shoot_cd = false
 
@@ -25,6 +26,7 @@ func _process(_delta):
 			shoot_cd = true
 			
 			shoot_laser()
+			
 			await  get_tree().create_timer(rate_fire).timeout
 			
 			shoot_cd = false
@@ -58,9 +60,14 @@ func _physics_process(delta):
 		global_position.x = 0
 
 func shoot_laser():
-	var l = laser_scena.instantiate() as Node2D
+	var l = laser_scene.instantiate() as LaserNode
 	l.global_position = muzzle.global_position
+	print("global_position", l.global_position)
+	
 	l.rotation = rotation
+	print("rotation", l.rotation)
+	
+	get_tree().root.add_child(l)
 	
 	emit_signal("laser_shot", l)
 
@@ -77,7 +84,7 @@ func die():
 func respawn(pos):
 	if alive == false:
 		alive = true
-		global_position = pos	
+		global_position = pos
 		velocity = Vector2.ZERO
 		
 		sprite.visible = true

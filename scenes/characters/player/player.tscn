@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b41qbmh5ajyej"]
+[gd_scene load_steps=5 format=3 uid="uid://b41qbmh5ajyej"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_itv6k"]
 [ext_resource type="Texture2D" uid="uid://bn485d0qv8278" path="res://assets/textures/player_shipt_200x200.png" id="2_361bs"]
+[ext_resource type="PackedScene" uid="uid://bw2qpmnoqnu0i" path="res://scenes/characters/player/laser.tscn" id="2_oooib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ge3hv"]
 radius = 0.669293
@@ -12,6 +13,7 @@ collision_mask = 5
 script = ExtResource("1_itv6k")
 acceleration = 20.0
 max_speed = 1200.0
+laser_scene = ExtResource("2_oooib")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)

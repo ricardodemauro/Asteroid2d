@@ -1,6 +1,7 @@
 class_name HudController extends Control
 
-var uilife_scene = preload("res://scenes/components/ui_life.tscn")
+@export var uilife_scene : PackedScene
+#var uilife_scene = preload("res://scenes/components/ui_life.tscn")
 
 @onready var lives = $Lives
 
