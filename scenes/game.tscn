@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://duwiifqug7g3p"]
 
-[ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/player.tscn" id="1_4jifl"]
+[ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/characters/player/player.tscn" id="1_4jifl"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_yhib4"]
-[ext_resource type="PackedScene" uid="uid://b3ypsumm8r1i6" path="res://scenes/hud.tscn" id="2_7g58g"]
-[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/asteroid.tscn" id="3_1y85n"]
+[ext_resource type="PackedScene" uid="uid://b3ypsumm8r1i6" path="res://scenes/components/hud.tscn" id="2_7g58g"]
+[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroid.tscn" id="3_1y85n"]
 [ext_resource type="PackedScene" uid="uid://bcun56n4p4ycq" path="res://scenes/game_over_screen.tscn" id="3_u83n4"]
-[ext_resource type="PackedScene" uid="uid://cpks16ngn4yom" path="res://scenes/background_field.tscn" id="5_433ky"]
-[ext_resource type="PackedScene" uid="uid://i7fmwocae0k3" path="res://scenes/game_spawn_area.tscn" id="6_vau8l"]
+[ext_resource type="PackedScene" uid="uid://cpks16ngn4yom" path="res://scenes/components/background_field.tscn" id="5_433ky"]
+[ext_resource type="PackedScene" uid="uid://i7fmwocae0k3" path="res://scenes/components/game_spawn_area.tscn" id="6_vau8l"]
 [ext_resource type="AudioStream" uid="uid://v55k4b13efgb" path="res://assets/audio/sfx_laser1.wav" id="7_bhxwu"]
 [ext_resource type="AudioStream" uid="uid://cj6d3b2f2d56x" path="res://assets/audio/hit.wav" id="8_jssph"]
 [ext_resource type="AudioStream" uid="uid://ekmur3pq86bq" path="res://assets/audio/explode.wav" id="9_5uyna"]
@@ -18,6 +18,7 @@ script = ExtResource("1_yhib4")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_7g58g")]
 unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
 
 [node name="GameOverScreen" parent="UI" instance=ExtResource("3_u83n4")]
 visible = false

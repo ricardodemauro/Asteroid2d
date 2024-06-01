@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3ypsumm8r1i6"]
 
 [ext_resource type="FontFile" uid="uid://bqsqp0xuvea71" path="res://assets/font/Kenney Blocks.ttf" id="1_ix4gc"]
-[ext_resource type="Script" path="res://scenes/hud.gd" id="1_puxi7"]
+[ext_resource type="Script" path="res://scenes/components/hud.gd" id="1_puxi7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dm5gh"]
 font = ExtResource("1_ix4gc")

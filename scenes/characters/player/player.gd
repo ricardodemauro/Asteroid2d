@@ -13,7 +13,7 @@ var alive := true
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
 
-var laser_scena = preload("res://scenes/laser.tscn")
+var laser_scena = preload("res://scenes/characters/player/laser.tscn")
 
 var shoot_cd = false
 

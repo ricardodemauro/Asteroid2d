@@ -1,6 +1,6 @@
 class_name HudController extends Control
 
-var uilife_scene = preload("res://scenes/ui_life.tscn")
+var uilife_scene = preload("res://scenes/components/ui_life.tscn")
 
 @onready var lives = $Lives
 

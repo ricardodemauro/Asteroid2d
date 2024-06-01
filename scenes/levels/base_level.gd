@@ -7,7 +7,7 @@ extends Node2D
 @onready var player_spawn_position = $PlayerSpawnPosition
 @onready var player_span_area : GameSpawnArea = $PlayerSpawnPosition/GameSpawnArea
 
-var asteroid_scene = preload("res://scenes/characters/asteroid.tscn")
+@onready var asteroid_scene = preload("res://scenes/asteroid.tscn")
 
 
 @onready var lives : int = 3:

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://civjgk0fpn5et"]
+
+[ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_nu4ky"]
+[ext_resource type="PackedScene" uid="uid://b3ypsumm8r1i6" path="res://scenes/components/hud.tscn" id="2_65u2j"]
+[ext_resource type="PackedScene" uid="uid://bcun56n4p4ycq" path="res://scenes/game_over_screen.tscn" id="3_8hrga"]
+[ext_resource type="PackedScene" uid="uid://cpks16ngn4yom" path="res://scenes/components/background_field.tscn" id="4_mss6e"]
+[ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/characters/player/player.tscn" id="5_4dboh"]
+[ext_resource type="PackedScene" uid="uid://i7fmwocae0k3" path="res://scenes/components/game_spawn_area.tscn" id="6_yck6p"]
+[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroid.tscn" id="7_eml8e"]
+[ext_resource type="AudioStream" uid="uid://v55k4b13efgb" path="res://assets/audio/sfx_laser1.wav" id="8_rebxb"]
+[ext_resource type="AudioStream" uid="uid://cj6d3b2f2d56x" path="res://assets/audio/hit.wav" id="9_k1d3x"]
+[ext_resource type="AudioStream" uid="uid://ekmur3pq86bq" path="res://assets/audio/explode.wav" id="10_lsakq"]
+
+[node name="Level1Starting" type="Node2D"]
+script = ExtResource("1_nu4ky")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_65u2j")]
+unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource("3_8hrga")]
+visible = false
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="BackgroundField" parent="." instance=ExtResource("4_mss6e")]
+
+[node name="Player" parent="." instance=ExtResource("5_4dboh")]
+position = Vector2(576, 324)
+scale = Vector2(0.7, 0.7)
+
+[node name="PlayerSpawnPosition" type="Node2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="GameSpawnArea" parent="PlayerSpawnPosition" instance=ExtResource("6_yck6p")]
+
+[node name="Lasers" type="Node" parent="."]
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource("7_eml8e")]
+position = Vector2(1010, 182)
+
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource("7_eml8e")]
+position = Vector2(341, 134)
+
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource("7_eml8e")]
+position = Vector2(991, 527)
+
+[node name="Asteroid" parent="Asteroids" instance=ExtResource("7_eml8e")]
+position = Vector2(342, 399)
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rebxb")
+
+[node name="AsteroidHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_k1d3x")
+
+[node name="PlayerDieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lsakq")
