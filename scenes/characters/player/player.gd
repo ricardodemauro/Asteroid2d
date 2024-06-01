@@ -36,6 +36,9 @@ func _physics_process(delta):
 	
 	var input_vector := Vector2(0, Input.get_axis("up", "down"))
 	
+	if (Vector2.ZERO != input_vector):
+		$ExaustorEmitter.restart()
+	
 	velocity += input_vector.rotated(rotation) * acceleration
 	velocity = velocity.limit_length(max_speed)
 	
