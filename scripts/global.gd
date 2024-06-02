@@ -2,6 +2,11 @@ extends Node
 
 var current_scene = null
 
+var rng = RandomNumberGenerator.new()
+
+func get_next_random_range(from : float, end : float) -> float:
+	return rng.randf_range(from, end)
+
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)

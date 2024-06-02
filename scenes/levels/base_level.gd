@@ -77,6 +77,9 @@ func _on_player_died():
 	
 	$PlayerDieSound.play()
 	
+	var game_camera = $Camera2D as GameCamera
+	game_camera.shake()
+	
 	player.global_position = player_spawn_position.global_position
 	
 	if lives == 0:

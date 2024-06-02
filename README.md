@@ -17,3 +17,7 @@ https://www.youtube.com/watch?v=NEGWb3blWJg
 # Resources
 
 https://ghostpixxells.itch.io/pixelfood
+
+# Camera Shake
+
+https://www.youtube.com/watch?v=LGt-jjVf-ZU
