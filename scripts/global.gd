@@ -8,6 +8,12 @@ func _ready():
 
 func goto_packed_scene(scene : PackedScene):
 	call_deferred("_deferred_goto_packed_scene", scene)
+	
+func change_scene_with_transition(path : String) -> void:
+	SceneTransition.change_to_scene(path)
+
+func change_packed_scene_with_transition(path : PackedScene) -> void:
+	SceneTransition.change_to_packed_scene(path)
 
 func _deferred_goto_packed_scene(scene : PackedScene):
 	# It is now safe to remove the current scene.

@@ -1,8 +1,9 @@
 class_name Asteroid extends Area2D
 
-signal exploded(position, size, points)
+signal exploded(position, size, points, identifier)
 
 var movement_vector := Vector2(0, -1)
+
 var points : int:
 	get:
 		match(size):
@@ -23,25 +24,35 @@ enum AsteroidSize{LARGE, MEDIUM, SMALL}
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
 
+@export var texture_large : Texture2D
+@export var texture_medium : Texture2D
+@export var texture_small : Texture2D
+
+@export var collistion_large : Shape2D
+@export var collistion_medium : Shape2D
+@export var collistion_small : Shape2D
+
+@export var identifier : float = 0
+
 func _ready():
 	rotation = randf_range(0, 2  * PI)
 	
 	match size:
 		AsteroidSize.LARGE:
 			speed = randf_range(50, 100)
-			sprite.texture = preload("res://assets/textures/meteorGrey_big4.png")
+			sprite.texture = texture_large
 			#cshape.shape = preload("res://resources/asteroid_cshape_large.tres")
-			cshape.set_deferred("shape", preload("res://resources/asteroid_cshape_large.tres"))
+			cshape.set_deferred("shape", collistion_large)
 		AsteroidSize.MEDIUM:
 			speed = randf_range(100, 150)
-			sprite.texture = preload("res://assets/textures/meteorGrey_med2.png")
+			sprite.texture = texture_medium
 			#cshape.shape = preload("res://resources/asteroid_cshape_medium.tres")
-			cshape.set_deferred("shape", preload("res://resources/asteroid_cshape_medium.tres"))
+			cshape.set_deferred("shape", collistion_medium)
 		AsteroidSize.SMALL:
 			speed = randf_range(100, 200)
-			sprite.texture = preload("res://assets/textures/meteorGrey_tiny1.png")
+			sprite.texture = texture_small
 			#cshape.shape = preload("res://resources/asteroid_cshape_small.tres")
-			cshape.set_deferred("shape", preload("res://resources/asteroid_cshape_small.tres"))
+			cshape.set_deferred("shape", collistion_small)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
@@ -63,7 +74,7 @@ func _physics_process(delta):
 
 
 func explode():
-	emit_signal("exploded", global_position, size, points)
+	emit_signal("exploded", global_position, size, points, identifier)
 	queue_free()
 
 func _on_body_entered(body):

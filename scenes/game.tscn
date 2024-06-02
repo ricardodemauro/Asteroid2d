@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/characters/player/player.tscn" id="1_4jifl"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_yhib4"]
 [ext_resource type="PackedScene" uid="uid://b3ypsumm8r1i6" path="res://scenes/components/hud.tscn" id="2_7g58g"]
-[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroid.tscn" id="3_1y85n"]
+[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroids/asteroid.tscn" id="3_1y85n"]
 [ext_resource type="PackedScene" uid="uid://bcun56n4p4ycq" path="res://scenes/game_over_screen.tscn" id="3_u83n4"]
 [ext_resource type="PackedScene" uid="uid://cpks16ngn4yom" path="res://scenes/components/background_field.tscn" id="5_433ky"]
 [ext_resource type="PackedScene" uid="uid://i7fmwocae0k3" path="res://scenes/components/game_spawn_area.tscn" id="6_vau8l"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Asteroid 2D"
-run/main_scene="res://scenes/levels/level1_starting.tscn"
+run/main_scene="res://scenes/levels/start_page.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/image="res://assets/splash/powered-by-godot.png"
 config/icon="res://icon.svg"
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
+SceneTransition="*res://scenes/transitions/scene_transition.tscn"
 
 [display]
 

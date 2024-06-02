@@ -7,7 +7,7 @@ extends Node2D
 @onready var player_spawn_position = $PlayerSpawnPosition
 @onready var player_span_area : GameSpawnArea = $PlayerSpawnPosition/GameSpawnArea
 
-@export var asteroid_scene : PackedScene
+@export var asteroid_scene : Array[PackedScene]
 @export var asteroid_count : int = 1
 @export var asteroid_velocity : float = 1
 #@onready var asteroid_scene = preload("res://scenes/asteroid.tscn")
@@ -35,7 +35,7 @@ func _on_player_laser_shot(laser):
 	$LaserSound.play()
 	lasers.add_child(laser)
 
-func _on_asteroid_exploded(asteroid_position, size, points):
+func _on_asteroid_exploded(asteroid_position, size, points, identifier):
 	score += points
 	
 	$AsteroidHitSound.play()
@@ -44,30 +44,32 @@ func _on_asteroid_exploded(asteroid_position, size, points):
 		Asteroid.AsteroidSize.LARGE:
 			var spaw_times = randf_range(1, 5)
 			for i in spaw_times:
-				spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.MEDIUM, randf_range(50, 100))
+				spaw_asteroid(identifier, asteroid_position, Asteroid.AsteroidSize.MEDIUM, randf_range(50, 100))
 			
 		Asteroid.AsteroidSize.MEDIUM:
 			var spaw_times = randf_range(1, 10)
 			for i in spaw_times:
-				spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.SMALL, randf_range(50, 100))
+				spaw_asteroid(identifier, asteroid_position, Asteroid.AsteroidSize.SMALL, randf_range(50, 100))
 		Asteroid.AsteroidSize.SMALL:
 			pass
 	
 func setup_initial_asteroids(quantity : int):
 	for i in quantity:
 		var asteroid_position = Vector2(0, 0)
-		spaw_asteroid(asteroid_position, Asteroid.AsteroidSize.LARGE, randf_range(50, 100))
+		var idx = i % asteroid_scene.size()
+		spaw_asteroid(idx, asteroid_position, Asteroid.AsteroidSize.LARGE, randf_range(50, 100))
 
-func spaw_asteroid(asteroid_position : Vector2, size : Asteroid.AsteroidSize, speed : float):
-	var tmp = asteroid_scene.instantiate() as Asteroid
+func spaw_asteroid(identifier : int, asteroid_position : Vector2, size : Asteroid.AsteroidSize, speed : float):
+	
+	var tmp = asteroid_scene[identifier].instantiate() as Asteroid
 	tmp.global_position = asteroid_position
 	tmp.size = size
 	
 	tmp.speed = speed
+	tmp.identifier = identifier
 	
 	tmp.connect("exploded", _on_asteroid_exploded)
 	
-	#asteroids.add_child(tmp)
 	asteroids.call_deferred("add_child", tmp)
 
 func _on_player_died():

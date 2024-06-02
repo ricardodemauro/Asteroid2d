@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4mvwxht21dn8"]
+
+[ext_resource type="Script" path="res://scenes/characters/asteroids/base_asteroid.gd" id="1_ukpg0"]
+[ext_resource type="Texture2D" uid="uid://633pdhtefgql" path="res://assets/textures/meteorGrey_big4.png" id="2_hghfl"]
+[ext_resource type="Texture2D" uid="uid://bc44ulhvh7hds" path="res://assets/textures/meteorGrey_med2.png" id="3_3wfjl"]
+[ext_resource type="Shape2D" uid="uid://d10kphy3h7ttp" path="res://resources/asteroid_cshape_large.tres" id="3_6ryyr"]
+[ext_resource type="Texture2D" uid="uid://8xohk1v60ovi" path="res://assets/textures/meteorGrey_tiny1.png" id="4_w5px3"]
+[ext_resource type="Shape2D" uid="uid://8lt5guxvqvp" path="res://resources/asteroid_cshape_medium.tres" id="6_ybe22"]
+[ext_resource type="Shape2D" uid="uid://dyglpg0qugjuc" path="res://resources/asteroid_cshape_small.tres" id="7_5e8ts"]
+
+[node name="Asteroid" type="Area2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_ukpg0")
+texture_large = ExtResource("2_hghfl")
+texture_medium = ExtResource("3_3wfjl")
+texture_small = ExtResource("4_w5px3")
+collistion_large = ExtResource("3_6ryyr")
+collistion_medium = ExtResource("6_ybe22")
+collistion_small = ExtResource("7_5e8ts")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hghfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_6ryyr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

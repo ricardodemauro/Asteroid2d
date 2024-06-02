@@ -8,3 +8,12 @@ It's a amazing Video by the way
 # Color Pallet
 
 https://lospec.com/palette-list/lospec-gb
+
+
+# Transition
+
+https://www.youtube.com/watch?v=NEGWb3blWJg
+
+# Resources
+
+https://ghostpixxells.itch.io/pixelfood

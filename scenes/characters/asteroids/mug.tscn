@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://bywxfap358dos"]
+
+[ext_resource type="Texture2D" uid="uid://bcsbndo2mo6il" path="res://assets/textures/mug.png" id="1_5a2ys"]
+[ext_resource type="Script" path="res://scenes/characters/asteroids/base_asteroid.gd" id="1_5ixtt"]
+[ext_resource type="Texture2D" uid="uid://ddwnhfo4vhktr" path="res://assets/textures/mug_large.png" id="2_ie60b"]
+[ext_resource type="Texture2D" uid="uid://c0lw87ko5jg3q" path="res://assets/textures/mug_medium.png" id="3_3hbv0"]
+[ext_resource type="Shape2D" uid="uid://c7r4cpbgabui3" path="res://resources/mug_cshap_large.tres" id="5_en4i1"]
+[ext_resource type="Shape2D" uid="uid://k23pe82i5dy6" path="res://resources/mug_cshap_medium.tres" id="6_y1tuy"]
+[ext_resource type="Shape2D" uid="uid://ckcyqixb58hb0" path="res://resources/mug_cshap_small.tres" id="7_f7y67"]
+
+[node name="Mug" type="Area2D"]
+script = ExtResource("1_5ixtt")
+texture_large = ExtResource("2_ie60b")
+texture_medium = ExtResource("3_3hbv0")
+texture_small = ExtResource("1_5a2ys")
+collistion_large = ExtResource("5_en4i1")
+collistion_medium = ExtResource("6_y1tuy")
+collistion_small = ExtResource("7_f7y67")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ie60b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("5_en4i1")

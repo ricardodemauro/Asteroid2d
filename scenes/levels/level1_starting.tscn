@@ -1,19 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://civjgk0fpn5et"]
+[gd_scene load_steps=12 format=3 uid="uid://civjgk0fpn5et"]
 
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_nu4ky"]
 [ext_resource type="PackedScene" uid="uid://b3ypsumm8r1i6" path="res://scenes/components/hud.tscn" id="2_65u2j"]
+[ext_resource type="PackedScene" uid="uid://bywxfap358dos" path="res://scenes/characters/asteroids/mug.tscn" id="2_m0rvr"]
+[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroids/asteroid.tscn" id="2_qhtqr"]
 [ext_resource type="PackedScene" uid="uid://bcun56n4p4ycq" path="res://scenes/game_over_screen.tscn" id="3_8hrga"]
 [ext_resource type="PackedScene" uid="uid://cpks16ngn4yom" path="res://scenes/components/background_field.tscn" id="4_mss6e"]
 [ext_resource type="PackedScene" uid="uid://b41qbmh5ajyej" path="res://scenes/characters/player/player.tscn" id="5_4dboh"]
 [ext_resource type="PackedScene" uid="uid://i7fmwocae0k3" path="res://scenes/components/game_spawn_area.tscn" id="6_yck6p"]
-[ext_resource type="PackedScene" uid="uid://b4mvwxht21dn8" path="res://scenes/characters/asteroid.tscn" id="7_eml8e"]
 [ext_resource type="AudioStream" uid="uid://v55k4b13efgb" path="res://assets/audio/sfx_laser1.wav" id="8_rebxb"]
 [ext_resource type="AudioStream" uid="uid://cj6d3b2f2d56x" path="res://assets/audio/hit.wav" id="9_k1d3x"]
 [ext_resource type="AudioStream" uid="uid://ekmur3pq86bq" path="res://assets/audio/explode.wav" id="10_lsakq"]
 
 [node name="Level1Starting" type="Node2D"]
 script = ExtResource("1_nu4ky")
-asteroid_scene = ExtResource("7_eml8e")
+asteroid_scene = Array[PackedScene]([ExtResource("2_m0rvr"), ExtResource("2_qhtqr")])
+asteroid_count = 3
 
 [node name="UI" type="CanvasLayer" parent="."]
 
